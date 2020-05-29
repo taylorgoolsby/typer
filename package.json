@@ -1,0 +1,13 @@
+{
+  "name": "typer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Taylor Goolsby <taylorgoolsby@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "npx servor src --reload"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
+}
