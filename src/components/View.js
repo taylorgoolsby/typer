@@ -11,7 +11,7 @@ type Props = {|
 
 const View = (props /*: Props*/) => {
   return html`
-    <div class=${classNames(style, props.class)}>
+    <div class=${window.classNames(style, props.class)}>
       ${props.children}
     </div>
   `

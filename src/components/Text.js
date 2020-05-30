@@ -11,7 +11,7 @@ type Props = {|
 
 const Text = (props /*: Props*/) => {
   return html`
-    <span class=${classNames(style, props.class)}>
+    <span class=${window.classNames(style, props.class)}>
       ${props.children}
     </span>
   `

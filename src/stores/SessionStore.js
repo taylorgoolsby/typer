@@ -26,7 +26,7 @@ class SessionStore {
     window.addEventListener('keydown', this.handleKeyDown)
   }
 
-  handleKeyDown(e) {
+  handleKeyDown(e /*: KeyboardEvent*/) {
     if (e.key === 'Tab') {
       e.preventDefault()
 
