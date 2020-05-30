@@ -2,12 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d984595a-8811-43a2-a46c-9c6517e5428b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/imports.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.flowconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Text.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/View.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/TypingArea.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/functions/randomInt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/mobx-react-lite.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/mobx-react.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stores/SessionStore.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/themes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imports.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/unpkg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,14 +50,24 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="run.prettier.on.save" value="true" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/containers" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
@@ -57,7 +82,8 @@
       <option name="presentableId" value="Default" />
       <updated>1590724740835</updated>
       <workItem from="1590724742213" duration="236000" />
-      <workItem from="1590725309681" duration="11227000" />
+      <workItem from="1590725309681" duration="11855000" />
+      <workItem from="1590819390310" duration="15557000" />
     </task>
     <servers />
   </component>
@@ -68,33 +94,46 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1659" height="277" key="GridCell.Tab.0.bottom" timestamp="1590735541681">
+    <state x="568" y="210" key="#JavaScript" timestamp="1590826031319">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
+    <state x="568" y="210" key="#JavaScript/0.23.1680.1027@0.23.1680.1027" timestamp="1590826031319" />
+    <state width="1659" height="277" key="GridCell.Tab.0.bottom" timestamp="1590770139437">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1659" height="277" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1590770139437" />
     <state width="1659" height="277" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1590735541681" />
-    <state width="1659" height="277" key="GridCell.Tab.0.center" timestamp="1590735541680">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state width="1659" height="277" key="GridCell.Tab.0.center" timestamp="1590770139435">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
+    <state width="1659" height="277" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1590770139435" />
     <state width="1659" height="277" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1590735541680" />
-    <state width="1659" height="277" key="GridCell.Tab.0.left" timestamp="1590735541680">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state width="1659" height="277" key="GridCell.Tab.0.left" timestamp="1590770139434">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
+    <state width="1659" height="277" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1590770139434" />
     <state width="1659" height="277" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1590735541680" />
-    <state width="1659" height="277" key="GridCell.Tab.0.right" timestamp="1590735541681">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state width="1659" height="277" key="GridCell.Tab.0.right" timestamp="1590770139437">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
+    <state width="1659" height="277" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1590770139437" />
     <state width="1659" height="277" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1590735541681" />
-    <state x="341" y="186" key="SettingsEditor" timestamp="1590730288617">
+    <state x="371" y="338" key="Registry" timestamp="1590821789504">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="341" y="186" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1590730288617" />
+    <state x="371" y="338" key="Registry/0.23.1680.1027@0.23.1680.1027" timestamp="1590821789504" />
+    <state x="341" y="186" key="SettingsEditor" timestamp="1590828327763">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="341" y="186" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1590828327763" />
     <state x="505" y="254" width="670" height="675" key="run.anything.popup" timestamp="1590735538135">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="505" y="254" width="670" height="675" key="run.anything.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1590735538135" />
-    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1590735529571">
+    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1590833153174">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1590735529571" />
+    <state x="433" y="217" width="670" height="578" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1590770138370" />
+    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1590833153174" />
   </component>
 </project>

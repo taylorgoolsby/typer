@@ -8,6 +8,8 @@
     "start": "npx servor src --reload"
   },
   "devDependencies": {
+    "flow-bin": "^0.125.1",
     "prettier": "^2.0.5"
-  }
+  },
+  "dependencies": {}
 }
