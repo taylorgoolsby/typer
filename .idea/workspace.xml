@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d984595a-8811-43a2-a46c-9c6517e5428b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Text.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Text.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/View.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/View.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/stores/SessionStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/SessionStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/themes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/themes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +34,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JSON" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -42,7 +42,7 @@
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="run.prettier.on.save" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -67,7 +67,7 @@
       <updated>1590724740835</updated>
       <workItem from="1590724742213" duration="236000" />
       <workItem from="1590725309681" duration="11855000" />
-      <workItem from="1590819390310" duration="15705000" />
+      <workItem from="1590819390310" duration="18093000" />
     </task>
     <servers />
   </component>
@@ -106,18 +106,18 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="371" y="338" key="Registry/0.23.1680.1027@0.23.1680.1027" timestamp="1590821789504" />
-    <state x="341" y="186" key="SettingsEditor" timestamp="1590828327763">
+    <state x="341" y="186" key="SettingsEditor" timestamp="1590837446907">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="341" y="186" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1590828327763" />
+    <state x="341" y="186" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1590837446907" />
     <state x="505" y="254" width="670" height="675" key="run.anything.popup" timestamp="1590735538135">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="505" y="254" width="670" height="675" key="run.anything.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1590735538135" />
-    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1590835494360">
+    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1590837873951">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="433" y="217" width="670" height="578" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1590770138370" />
-    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1590835494360" />
+    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1590837873951" />
   </component>
 </project>
