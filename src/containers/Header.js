@@ -9,7 +9,7 @@ const style = css`
 `
 
 const Header = () => {
-  return html` <${View} class=${style}> <//> `
+  return html` <${View} className=${style}> </View> `
 }
 
 export default Header

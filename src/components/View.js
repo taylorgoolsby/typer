@@ -4,14 +4,16 @@ import { html, css } from '../unpkg.js'
 
 /*::
 type Props = {|
-  class?: any,
+  className?: any,
   children?: any
 |}
 */
 
 const View = (props /*: Props*/) => {
+  const { className } = props
+
   return html`
-    <div class=${window.classNames(style, props.class)}>
+    <div class=${window.classNames(style, className)}>
       ${props.children}
     </div>
   `

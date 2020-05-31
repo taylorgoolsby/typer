@@ -4,10 +4,10 @@ import { React, html, css, mobxReact } from '../unpkg.js'
 import View from '../components/View.js'
 import themes from '../themes.js'
 import Header from './Header.js'
-import TypingArea from './TypingArea.js'
+import Scroll from './Scroll.js'
 import SessionStore from '../stores/SessionStore.js'
 
-const theme = themes[2]
+const theme = themes[1]
 
 const { Provider } = mobxReact
 const stores = {
@@ -24,6 +24,7 @@ css`
     font-family: 'Source Code Pro', monospace;
   }
 `
+// TODO: apercu
 
 const componentStyle = css`
   min-width: 100vw;
@@ -32,7 +33,7 @@ const componentStyle = css`
   > .content {
     margin-left: auto;
     margin-right: auto;
-    width: 800px;
+    //width: 800px;
     flex: 1;
   }
 `
@@ -40,10 +41,10 @@ const componentStyle = css`
 const App = () => {
   return html`
     <${Provider} ...${stores}>
-      <${View} class=${componentStyle}>
-        <${View} class="content">
+      <${View} className=${componentStyle}>
+        <${View} className="content">
           <${Header} />
-          <${TypingArea} />
+          <${Scroll} />
         </View>
       </View>
     </Provider>

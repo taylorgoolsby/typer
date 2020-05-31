@@ -22,6 +22,29 @@ for (let i = 0; i < verseKeys.length; i++) {
   keyToIndex[key] = i
 }
 
+// look for special characters:
+// { := error start
+// } := error end
+// | := end of user input
+// for (const line of layout) {
+//   if (line[0] === 'TXT') {
+//     const matches = line[1].match(/[{}|]/g)
+//     if (matches) {
+//       console.error('Special character in use: ' + matches)
+//     }
+//   } else if (line[0] === 'VERSE') {
+//     const matches = verses[line[1]].match(/[{}|]/g)
+//     if (matches) {
+//       console.error('Special character in use: ' + matches)
+//     }
+//   } else if (line[0] === 'PARAGRAPH') {
+//   } else if (line[0] === 'CHAPTER') {
+//   } else if (line[0] === 'BOOK') {
+//   } else {
+//     console.log('line', line)
+//   }
+// }
+
 class SessionStore {
   prevVerseIndices /*: Array<number>*/
   verseIndex /*: number*/
@@ -86,14 +109,6 @@ class SessionStore {
     this.verseIndex--
   }
 
-  get verseKey() {
-    return verseKeys[this.verseIndex]
-  }
-
-  get verse() {
-    return verses[verseKeys[this.verseIndex]]
-  }
-
   setNextChapter() {
     let layoutIndex = keyToLayout[this.verseKey]
     while (
@@ -115,6 +130,7 @@ class SessionStore {
     this.verseIndex = keyToIndex[verseKey]
   }
 
+  /* TODO: Unable to go back to Genesis 1:1 if current chapter is Genesis 1*/
   setPrevChapter() {
     let layoutIndex = keyToLayout[this.verseKey]
     while (layoutIndex > 0 && layout[layoutIndex][0] !== 'CHAPTER') {
@@ -142,6 +158,19 @@ class SessionStore {
     this.prevVerseIndices.push(this.verseIndex)
     this.verseIndex = keyToIndex[verseKey]
   }
+
+  get verseKey() {
+    return verseKeys[this.verseIndex]
+  }
+
+  get currentVerse() {
+    let verse = verses[verseKeys[this.verseIndex]]
+    if (verse[0] === '#') {
+      // Remove new paragraph syntax because we are using layout to detect paragraphs
+      verse = verse.slice(2)
+    }
+    return verse
+  }
 }
 
 decorate(SessionStore, {
@@ -151,7 +180,7 @@ decorate(SessionStore, {
   setRandomVerse: action.bound,
   setUndoVerse: action.bound,
   verseKey: computed,
-  verse: computed,
+  currentVerse: computed,
 })
 
 const instance = new SessionStore()
