@@ -9,10 +9,9 @@ import Verse from '../components/Verse.js'
 const { observer } = mobxReact
 
 const spaces = new Array(80 + 1).join(' ')
-console.log('spaces.length', spaces.length)
 
 const Scroll = () => {
-  const { verseKey, currentVerse } = SessionStore
+  const { verseKey, currentVerse, userInput } = SessionStore
 
   return html`
     <${View} className=${style}>
@@ -22,7 +21,7 @@ const Scroll = () => {
       <${Text}>
         ${verseKey}
       </Text>
-      <${Verse} verse=${currentVerse}/>
+      <${Verse} verse=${currentVerse} userInput=${userInput}/>
     </View>
   `
 }

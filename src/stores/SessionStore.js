@@ -2,6 +2,11 @@
 
 import { mobx, kjv } from '../unpkg.js'
 import randomInt from '../functions/randomInt.js'
+import injectErrorMarks from '../functions/injectErrorMarks.js'
+import injectErrorMarksOverVerse from '../functions/injectErrorMarksOverVerse.js'
+import injectCursor from '../functions/injectCursor.js'
+import mergeInjects from '../functions/mergeInjects.js'
+import mergeErrorInjects from '../functions/mergeErrorInjects.js'
 
 const { decorate, observable, action, observe, computed } = mobx
 
@@ -45,6 +50,26 @@ for (let i = 0; i < verseKeys.length; i++) {
 //   }
 // }
 
+// Look for double spaces:
+// for (const line of layout) {
+//   if (line[0] === 'TXT') {
+//     const matches = line[1].match(/  /g)
+//     if (matches) {
+//       console.error('Special character in use: ' + matches)
+//     }
+//   } else if (line[0] === 'VERSE') {
+//     const matches = verses[line[1]].match(/  /g)
+//     if (matches) {
+//       console.error('Special character in use: ' + matches)
+//     }
+//   } else if (line[0] === 'PARAGRAPH') {
+//   } else if (line[0] === 'CHAPTER') {
+//   } else if (line[0] === 'BOOK') {
+//   } else {
+//     console.log('line', line)
+//   }
+// }
+
 class SessionStore {
   prevVerseIndices /*: Array<number>*/
   verseIndex /*: number*/
@@ -53,6 +78,9 @@ class SessionStore {
   constructor() {
     // Needed in order to make MobX re-render components:
     observe(this, () => {})
+    observe(this, 'verseIndex', () => {
+      this.clearUserInput()
+    })
 
     this.prevVerseIndices = []
     this.verseIndex = 0
@@ -62,10 +90,32 @@ class SessionStore {
   }
 
   handleKeyDown(e /*: KeyboardEvent*/) {
-    if (/^[a-z0-9 \[\]{};:'",<.>/?|\\!@#$%^&*()_+\-=`~]$/i.test(e.key)) {
-      this.userInput += e.key
+    // TODO: new lines accepted as a space only if it's the last character.
+    if (/^[a-z0-9 \[\];:'",<.>/?\\!@#$%^&*()_+\-=`~]$/i.test(e.key)) {
+      const doubleSpace =
+        this.userInput[this.userInput.length - 1] === ' ' && e.key === ' '
+      const startSpace = !this.userInput.length && e.key === ' '
+      if (
+        !e.metaKey &&
+        !e.ctrlKey &&
+        !e.altKey &&
+        !doubleSpace &&
+        !startSpace
+      ) {
+        // TODO: Performance profiling
+        const noMoreSpace =
+          this.userInputWordCount >= this.verseWordCount && e.key === ' '
+        if (noMoreSpace) {
+          // Going to next verse will clear userInput
+          this.setNextVerse()
+        } else {
+          this.userInput += e.key
+        }
+      }
     } else if (e.key === 'Backspace') {
-      this.userInput = this.userInput.slice(0, -1)
+      if (!e.metaKey && !e.ctrlKey && !e.altKey) {
+        this.userInput = this.userInput.slice(0, -1)
+      }
     } else if (e.key === 'Tab') {
       e.preventDefault()
 
@@ -83,6 +133,10 @@ class SessionStore {
     } else if (e.key === 'ArrowUp') {
       this.setPrevChapter()
     }
+  }
+
+  clearUserInput() {
+    this.userInput = ''
   }
 
   setRandomVerse() {
@@ -169,7 +223,27 @@ class SessionStore {
       // Remove new paragraph syntax because we are using layout to detect paragraphs
       verse = verse.slice(2)
     }
+
     return verse
+  }
+
+  get injectedVerse() {
+    const verse = this.currentVerse
+    const errorInjected = injectErrorMarksOverVerse(verse, this.userInput)
+    const cursorInjected = injectCursor(verse, this.userInput)
+    const injected = mergeInjects(
+      cursorInjected,
+      mergeErrorInjects(verse, errorInjected)
+    )
+    return injected
+  }
+
+  get verseWordCount() {
+    return this.currentVerse.split(' ').length
+  }
+
+  get userInputWordCount() {
+    return this.userInput.split(' ').length
   }
 }
 
@@ -177,14 +251,15 @@ decorate(SessionStore, {
   verseIndex: observable,
   userInput: observable,
   handleKeyDown: action.bound,
+  clearUserInput: action.bound,
   setRandomVerse: action.bound,
   setUndoVerse: action.bound,
   verseKey: computed,
   currentVerse: computed,
+  injectedVerse: computed,
+  verseWordCount: computed,
+  userInputWordCount: computed,
 })
 
 const instance = new SessionStore()
-
-console.log('instance', instance)
-
 export default instance

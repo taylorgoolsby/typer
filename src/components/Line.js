@@ -104,9 +104,6 @@ function splitLine(line /*: string*/) /*: Array<Segment>*/ {
     })
   }
 
-  console.log('line', line)
-  console.log('marks', marks)
-  console.log('segments', segments)
   return segments
 }
 
@@ -138,7 +135,5 @@ const style = css`
     font-style: italic;
   }
 `
-
-console.log('style', style)
 
 export default Line

@@ -7,7 +7,7 @@ import Header from './Header.js'
 import Scroll from './Scroll.js'
 import SessionStore from '../stores/SessionStore.js'
 
-const theme = themes[1]
+const theme = themes[3]
 
 const { Provider } = mobxReact
 const stores = {
@@ -19,8 +19,8 @@ css`
   :global(body) {
     margin: 0;
     padding: 0;
-    background-color: ${theme.back};
-    color: ${theme.high};
+    background-color: ${theme.backgroundColor};
+    color: ${theme.titleColor};
     font-family: 'Source Code Pro', monospace;
   }
 `

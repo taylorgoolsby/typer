@@ -11,4 +11,13 @@ export default {
     fore: '#DADDD8',
     high: '#ECEBE4',
   },
+  '3': {
+    backgroundColor: '#313231',
+    titleColor: '#a5a096',
+    caretColor: '#a5a096',
+    untypedColor: '#5d6263',
+    typedColor: '#e7e3db',
+    errorColor: '#dd452e',
+    errorExtraColor: '#9e3423',
+  },
 }
