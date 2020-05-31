@@ -112,6 +112,13 @@ class SessionStore {
           this.userInput += e.key
         }
       }
+    } else if (e.key === 'Enter') {
+      const noMoreSpace =
+        this.userInputWordCount >= this.verseWordCount &&
+        this.userInput[this.userInput.length - 1] !== ' '
+      if (noMoreSpace) {
+        this.setNextVerse()
+      }
     } else if (e.key === 'Backspace') {
       if (!e.metaKey && !e.ctrlKey && !e.altKey) {
         this.userInput = this.userInput.slice(0, -1)
