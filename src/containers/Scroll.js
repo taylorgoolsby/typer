@@ -11,7 +11,7 @@ const { observer } = mobxReact
 const spaces = new Array(80 + 1).join(' ')
 
 const Scroll = () => {
-  const { verseKey, currentVerse, userInput } = SessionStore
+  const { verseKey, currentVerse, injectedVerse } = SessionStore
 
   return html`
     <${View} className=${style}>
@@ -21,7 +21,7 @@ const Scroll = () => {
       <${Text}>
         ${verseKey}
       </Text>
-      <${Verse} verse=${currentVerse} userInput=${userInput}/>
+      <${Verse} verse=${currentVerse} injectedVerse=${injectedVerse}/>
     </View>
   `
 }

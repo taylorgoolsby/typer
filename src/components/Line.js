@@ -3,6 +3,7 @@
 import { html, css } from '../unpkg.js'
 import View from './View.js'
 import Text from './Text.js'
+import themes from '../themes.js'
 
 /*::
 type Props = {
@@ -16,6 +17,8 @@ type Segment = {
   italic: boolean
 }
 */
+
+const theme = themes[3]
 
 function splitLine(line /*: string*/) /*: Array<Segment>*/ {
   // New segments are started when:
@@ -133,6 +136,14 @@ const Line = (props /*: Props*/) => {
 const style = css`
   span.italic {
     font-style: italic;
+  }
+
+  span.typed {
+    color: ${theme.typedColor};
+  }
+
+  span.error {
+    color: ${theme.errorColor};
   }
 `
 
