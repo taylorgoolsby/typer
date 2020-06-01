@@ -7,4 +7,6 @@ import * as kjv from 'https://unpkg.com/es-kjv@1.0.2'
 
 const html = htm.bind(React.createElement)
 
+mobxReact.observerBatching(ReactDOM.unstable_batchedUpdates)
+
 export { React, ReactDOM, useState, htm, html, css, mobx, mobxReact, kjv }

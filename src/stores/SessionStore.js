@@ -2,7 +2,6 @@
 
 import { mobx, kjv } from '../unpkg.js'
 import randomInt from '../functions/randomInt.js'
-import injectErrorMarks from '../functions/injectErrorMarks.js'
 import injectErrorMarksOverVerse from '../functions/injectErrorMarksOverVerse.js'
 import injectCursor from '../functions/injectCursor.js'
 import mergeInjects from '../functions/mergeInjects.js'
@@ -70,10 +69,17 @@ for (let i = 0; i < verseKeys.length; i++) {
 //   }
 // }
 
+export type MetaWord = {
+  original: string,
+  input: string,
+  italic: boolean,
+  complete: boolean,
+}
+
 class SessionStore {
-  prevVerseIndices /*: Array<number>*/
-  verseIndex /*: number*/
-  userInput /*: string*/
+  prevVerseIndices: Array<number>
+  verseIndex: number
+  userInput: string
 
   constructor() {
     // Needed in order to make MobX re-render components:
@@ -89,7 +95,7 @@ class SessionStore {
     window.addEventListener('keydown', this.handleKeyDown)
   }
 
-  handleKeyDown(e /*: KeyboardEvent*/) {
+  handleKeyDown(e: KeyboardEvent) {
     // TODO: new lines accepted as a space only if it's the last character.
     if (/^[a-z0-9 \[\];:'",<.>/?\\!@#$%^&*()_+\-=`~]$/i.test(e.key)) {
       const doubleSpace =
@@ -245,8 +251,45 @@ class SessionStore {
     return injected
   }
 
+  get verseWords(): Array<MetaWord> {
+    // userInput end is not trimmed, no double spaces, start trimmed
+    // It is not possible for userInput to have more words than verse.
+    const userInput = this.userInput
+
+    // split userInput, but keep spaces.
+    const userWords: Array<string> = userInput.match(/[^ ]+(\s|$)/g) || []
+
+    let verse = verses[verseKeys[this.verseIndex]]
+    if (verse[0] === '#') {
+      // Remove new paragraph syntax because we are using layout to detect paragraphs
+      verse = verse.slice(2)
+    }
+
+    const words = verse.split(' ')
+
+    let italic = false
+    const metaWords: Array<MetaWord> = words.map((word) => {
+      const userWord: string = userWords.shift() || ''
+      if (word[0] === '[') {
+        italic = true
+      }
+      const metaWord: MetaWord = {
+        original: word.replace(/[\[\]]/g, ''),
+        input: userWord.trim(),
+        italic,
+        complete: userWord[userWord.length - 1] === ' ',
+      }
+      if (word[word.length - 1] === ']') {
+        italic = false
+      }
+      return metaWord
+    })
+
+    return metaWords
+  }
+
   get verseWordCount() {
-    return this.currentVerse.split(' ').length
+    return this.verseWords.length
   }
 
   get userInputWordCount() {
@@ -264,6 +307,7 @@ decorate(SessionStore, {
   verseKey: computed,
   currentVerse: computed,
   injectedVerse: computed,
+  verseWords: computed,
   verseWordCount: computed,
   userInputWordCount: computed,
 })

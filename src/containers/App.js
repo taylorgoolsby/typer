@@ -21,7 +21,7 @@ css`
     padding: 0;
     background-color: ${theme.backgroundColor};
     color: ${theme.titleColor};
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Roboto Mono', monospace;
   }
 `
 // TODO: apercu
@@ -29,6 +29,7 @@ css`
 const componentStyle = css`
   min-width: 100vw;
   min-height: 100vh;
+  overflow: hidden;
 
   > .content {
     margin-left: auto;

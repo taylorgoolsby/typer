@@ -5,11 +5,12 @@
   "author": "Taylor Goolsby <taylorgoolsby@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "start": "npx servor src --reload"
+    "start": "servor src --reload"
   },
   "devDependencies": {
     "flow-bin": "^0.125.1",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "servor": "git+https://git@github.com/taylorgoolsby/servor.git"
   },
   "dependencies": {}
 }

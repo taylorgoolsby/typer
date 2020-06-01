@@ -18,6 +18,6 @@ export default {
     untypedColor: '#5d6263',
     typedColor: '#e7e3db',
     errorColor: '#dd452e',
-    errorExtraColor: '#9e3423',
+    extraColor: '#9e3423',
   },
 }
