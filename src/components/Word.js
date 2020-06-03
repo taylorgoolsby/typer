@@ -93,7 +93,9 @@ const Word = (props: Props) => {
   // Words with mixed styles:
 
   const segments = splitErrorWord(word)
-  const hasError = !!segments.find((segment) => segment.error)
+  const hasError = !!segments.find(
+    (segment) => segment.error || (word.complete && !segment.typed)
+  )
 
   return html`
     <${Text} className=${window.classNames(
