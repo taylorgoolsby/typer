@@ -2,7 +2,7 @@
 
 import { html, css, mobxReact } from '../unpkg.js'
 import View from '../components/View.js'
-import SessionStore from '../stores/SessionStore.js'
+import SessionStore from '../stores/ScrollStore.js'
 import Text from '../components/Text.js'
 import Verse from '../components/Verse.js'
 import Line from '../components/Line.js'
@@ -12,7 +12,7 @@ const { observer } = mobxReact
 const spaces = new Array(80 + 1).join(' ')
 
 const Scroll = () => {
-  const { verseKey, currentVerse, injectedVerse, verseWords } = SessionStore
+  const { verseKey, verseWords, getVerseOffset } = SessionStore
 
   return html`
     <${View} className=${style}>
@@ -22,7 +22,14 @@ const Scroll = () => {
       <${Line}>
         ${verseKey}
       </Line>
-      <${Verse} verseWords=${verseWords} verse=${currentVerse} injectedVerse=${injectedVerse}/>
+      <${Verse} verseString=${getVerseOffset(-2)}/>
+      <${Verse} verseString=${getVerseOffset(-1)}/>
+      <${Verse} verseWords=${verseWords} />
+      <${Verse} verseString=${getVerseOffset(1)}/>
+      <${Verse} verseString=${getVerseOffset(2)}/>
+      <${Verse} verseString=${getVerseOffset(3)}/>
+      <${Verse} verseString=${getVerseOffset(4)}/>
+      <${Verse} verseString=${getVerseOffset(5)}/>
     </View>
   `
 }

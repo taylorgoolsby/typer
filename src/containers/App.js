@@ -5,7 +5,7 @@ import View from '../components/View.js'
 import themes from '../themes.js'
 import Header from './Header.js'
 import Scroll from './Scroll.js'
-import SessionStore from '../stores/SessionStore.js'
+import SessionStore from '../stores/ScrollStore.js'
 
 const theme = themes[3]
 

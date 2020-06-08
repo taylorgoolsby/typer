@@ -2,7 +2,7 @@
 
 import { html, css } from '../unpkg.js'
 import Text from './Text.js'
-import type { MetaWord } from '../stores/SessionStore.js'
+import type { MetaWord } from '../stores/ScrollStore.js'
 import themes from '../themes.js'
 
 const theme = themes[3]

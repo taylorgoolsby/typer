@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d984595a-8811-43a2-a46c-9c6517e5428b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/serve.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Line.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Line.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Verse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Verse.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Word.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Word.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Scroll.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Scroll.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/SessionStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/ScrollStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,10 +120,10 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="505" y="254" width="670" height="675" key="run.anything.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1590735538135" />
-    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1591040348424">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state x="433" y="217" width="670" height="578" key="search.everywhere.popup" timestamp="1591159015575">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="433" y="217" width="670" height="578" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1590770138370" />
+    <state x="433" y="217" width="670" height="578" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1591159015575" />
     <state x="505" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1591040348424" />
   </component>
 </project>

@@ -11,6 +11,8 @@ const { decorate, observable, action, observe, computed } = mobx
 
 const { verses, layout } = kjv
 
+export const LINE_LENGTH = 80
+
 const keyToLayout = {}
 for (let i = 0; i < layout.length; i++) {
   const line = layout[i]
@@ -76,7 +78,7 @@ export type MetaWord = {
   complete: boolean,
 }
 
-class SessionStore {
+class ScrollStore {
   prevVerseIndices: Array<number>
   verseIndex: number
   userInput: string
@@ -89,7 +91,7 @@ class SessionStore {
     })
 
     this.prevVerseIndices = []
-    this.verseIndex = 0
+    this.verseIndex = keyToIndex['John 1:1']
     this.userInput = ''
 
     window.addEventListener('keydown', this.handleKeyDown)
@@ -226,29 +228,26 @@ class SessionStore {
     this.verseIndex = keyToIndex[verseKey]
   }
 
-  get verseKey() {
-    return verseKeys[this.verseIndex]
-  }
-
-  get currentVerse() {
-    let verse = verses[verseKeys[this.verseIndex]]
+  getVerseOffset = (offset: number): ?string => {
+    if (this.verseIndex + offset < 0) {
+      return null
+    }
+    if (this.verseIndex + offset > verseKeys.length - 1) {
+      return null
+    }
+    let verse = verses[verseKeys[this.verseIndex + offset]].replace(
+      /[\[\]]/g,
+      ''
+    )
     if (verse[0] === '#') {
       // Remove new paragraph syntax because we are using layout to detect paragraphs
       verse = verse.slice(2)
     }
-
     return verse
   }
 
-  get injectedVerse() {
-    const verse = this.currentVerse
-    const errorInjected = injectErrorMarksOverVerse(verse, this.userInput)
-    const cursorInjected = injectCursor(verse, this.userInput)
-    const injected = mergeInjects(
-      cursorInjected,
-      mergeErrorInjects(verse, errorInjected)
-    )
-    return injected
+  get verseKey() {
+    return verseKeys[this.verseIndex]
   }
 
   get verseWords(): Array<MetaWord> {
@@ -297,7 +296,7 @@ class SessionStore {
   }
 }
 
-decorate(SessionStore, {
+decorate(ScrollStore, {
   verseIndex: observable,
   userInput: observable,
   handleKeyDown: action.bound,
@@ -305,12 +304,10 @@ decorate(SessionStore, {
   setRandomVerse: action.bound,
   setUndoVerse: action.bound,
   verseKey: computed,
-  currentVerse: computed,
-  injectedVerse: computed,
   verseWords: computed,
   verseWordCount: computed,
   userInputWordCount: computed,
 })
 
-const instance = new SessionStore()
+const instance = new ScrollStore()
 export default instance
